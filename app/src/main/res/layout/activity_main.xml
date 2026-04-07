@@ -24,9 +24,9 @@
         android:elevation="16dp"
         app:itemActiveIndicatorStyle="@style/Widget.App.BottomNavActiveIndicator"
         app:itemIconSize="24dp"
-        app:itemIconTint="@color/bottom_nav_color_state"
+        app:itemIconTint="@drawable/bottom_nav_color_state"
         app:itemRippleColor="@color/ripple_purple"
-        app:itemTextColor="@color/bottom_nav_color_state"
+        app:itemTextColor="@drawable/bottom_nav_color_state"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu" />
 
