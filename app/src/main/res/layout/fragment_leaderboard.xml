@@ -1,128 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5">
+    android:background="@color/background_primary">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Peringkat Siswa"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/black"/>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Header -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:padding="16dp"
-        android:background="@drawable/gradient_bg_podium"> <LinearLayout
-        android:id="@+id/podium1"
-        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/ic_user_placeholder"
-            app:strokeColor="#FFD700"
-            app:strokeWidth="4dp"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.MediumComponent"
-            android:elevation="8dp"/>
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="8dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Juara 1"
+            android:text="Informatika · Kelas XII"
+            android:textSize="12sp"
+            android:textColor="@color/text_tertiary"
+            android:letterSpacing="0.05" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Papan Peringkat"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginTop="4dp"/>
+            android:textColor="@color/text_primary"
+            android:layout_marginTop="2dp" />
+
+    </LinearLayout>
+
+    <!-- Podium Section -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="8dp">
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_podium_gold"
-            android:elevation="4dp" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_podium_container" />
 
+        <!-- 2nd Place (Left) -->
         <LinearLayout
             android:id="@+id/podium2"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/podium1"
-            android:layout_marginEnd="8dp">
+            android:gravity="center"
+            android:layout_gravity="bottom|start"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="0dp">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                app:strokeColor="#C0C0C0"
-                app:strokeWidth="3dp"
-                app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.MediumComponent"
-                android:elevation="6dp"/>
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:src="@drawable/ic_user_placeholder"
+                app:strokeColor="@color/silver"
+                app:strokeWidth="2dp"
+                app:shapeAppearanceOverlay="@style/CircleImageStyle" />
 
             <TextView
+                android:id="@+id/tv_name_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Juara 2" />
+                android:text="Rania"
+                android:textColor="@color/text_primary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp" />
 
-            <View
+            <TextView
+                android:id="@+id/tv_xp_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2,840 XP"
+                android:textColor="@color/silver"
+                android:textSize="10sp" />
+
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_podium_silver"
-                android:elevation="3dp" />
+                android:layout_height="80dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_podium_silver">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="2"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+
+            </FrameLayout>
+
         </LinearLayout>
 
+        <!-- 1st Place (Center) -->
+        <LinearLayout
+            android:id="@+id/podium1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="0dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_crown"
+                android:layout_marginBottom="4dp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_user_placeholder"
+                app:strokeColor="@color/gold"
+                app:strokeWidth="3dp"
+                app:shapeAppearanceOverlay="@style/CircleImageStyle" />
+
+            <TextView
+                android:id="@+id/tv_name_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Arya"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tv_xp_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3,210 XP"
+                android:textColor="@color/gold"
+                android:textSize="10sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_podium_gold">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <!-- 3rd Place (Right) -->
         <LinearLayout
             android:id="@+id/podium3"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/podium1"
-            android:layout_marginStart="8dp">
+            android:gravity="center"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="0dp">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:strokeColor="#CD7F32"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_user_placeholder"
+                app:strokeColor="@color/bronze"
                 app:strokeWidth="2dp"
-                app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.MediumComponent"
-                android:elevation="6dp"/>
+                app:shapeAppearanceOverlay="@style/CircleImageStyle" />
 
             <TextView
+                android:id="@+id/tv_name_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Juara 3" />
+                android:text="Dimas"
+                android:textColor="@color/text_primary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp" />
 
-            <View
+            <TextView
+                android:id="@+id/tv_xp_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2,590 XP"
+                android:textColor="@color/bronze"
+                android:textSize="10sp" />
+
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_podium_bronze"
-                android:elevation="2dp" />
+                android:layout_height="56dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_podium_bronze">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="3"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+
+            </FrameLayout>
+
         </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 
+    <!-- Section Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Peringkat Selanjutnya"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_secondary"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Leaderboard List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_leaderboard"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:padding="8dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="8dp"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </LinearLayout>

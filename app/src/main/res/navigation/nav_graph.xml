@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_materi"
-        android:name="com.example.myskripsi.ui.Fragment.MateriFragment"
+        android:name="com.example.myskripsi.ui.fragment.MateriFragment"
         android:label="Materi"
         tools:layout="@layout/fragment_materi" />
 
     <fragment
         android:id="@+id/nav_leaderboard"
-        android:name="com.example.myskripsi.ui.Fragment.LeaderboardFragment"
+        android:name="com.example.myskripsi.ui.fragment.LeaderboardFragment"
         android:label="Peringkat"
         tools:layout="@layout/fragment_leaderboard" />
 
     <fragment
         android:id="@+id/nav_profil"
-        android:name="com.example.myskripsi.ui.Fragment.ProfilFragment"
+        android:name="com.example.myskripsi.ui.fragment.ProfilFragment"
         android:label="Profil"
         tools:layout="@layout/fragment_profil" />
 </navigation>

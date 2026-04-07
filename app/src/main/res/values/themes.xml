@@ -1,9 +1,38 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MySkripsi" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ==================== TEMA UTAMA (LIGHT) ==================== -->
+    <style name="Theme.App" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/purple_primary</item>
+        <item name="colorPrimaryDark">@color/purple_dark</item>
+        <item name="colorAccent">@color/purple_primary</item>
+        <item name="android:windowBackground">@color/background_primary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/surface_card</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <style name="Theme.MySkripsi" parent="Base.Theme.MySkripsi" />
+    <!-- ==================== KOMPONEN ==================== -->
+
+    <style name="CircleImageStyle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="Widget.App.BottomNavActiveIndicator" parent="@style/Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/purple_alpha</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.BottomNavIndicator</item>
+    </style>
+
+    <style name="ShapeAppearance.App.BottomNavIndicator" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="Widget.App.LinearProgress" parent="Widget.MaterialComponents.LinearProgressIndicator">
+        <item name="trackColor">@color/purple_alpha</item>
+        <item name="indicatorColor">@color/purple_primary</item>
+        <item name="trackCornerRadius">99dp</item>
+    </style>
+
 </resources>

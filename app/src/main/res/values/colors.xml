@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <!-- Brand -->
+    <color name="purple_primary">#7C3AED</color>
+    <color name="purple_dark">#4F46E5</color>
+    <color name="purple_alpha">#1A7C3AED</color>
+
+    <!-- Backgrounds (LIGHT) -->
+    <color name="background_primary">#F8F7FF</color>
+    <color name="surface_card">#FFFFFF</color>
+
+    <!-- Text (LIGHT) -->
+    <color name="text_primary">#1A1A2E</color>
+    <color name="text_secondary">#3D3D5C</color>
+    <color name="text_tertiary">#8888AA</color>
+
+    <!-- Border (LIGHT) -->
+    <color name="border_subtle">#1A1A1A2E</color>
+
+    <!-- Status -->
+    <color name="green_done">#10B981</color>
+    <color name="green_alpha">#1A10B981</color>
+
+    <!-- Podium -->
+    <color name="gold">#FFD700</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="bronze">#CD7F32</color>
+
+    <!-- Misc -->
+    <color name="white">#FFFFFF</color>
+    <color name="ripple_purple">#337C3AED</color>
+
 </resources>

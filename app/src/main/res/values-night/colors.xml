@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Brand (sama di semua mode) -->
+    <color name="purple_primary">#A78BFA</color>
+    <color name="purple_dark">#818CF8</color>
+    <color name="purple_alpha">#2AA78BFA</color>
+
+    <!-- Backgrounds (NIGHT) -->
+    <color name="background_primary">#0F0F1A</color>
+    <color name="surface_card">#1A1A2E</color>
+
+    <!-- Text (NIGHT) -->
+    <color name="text_primary">#F0EEFF</color>
+    <color name="text_secondary">#C4BFDF</color>
+    <color name="text_tertiary">#6B6890</color>
+
+    <!-- Border (NIGHT) -->
+    <color name="border_subtle">#33FFFFFF</color>
+
+    <!-- Status -->
+    <color name="green_done">#34D399</color>
+    <color name="green_alpha">#2234D399</color>
+
+    <!-- Podium (sama) -->
+    <color name="gold">#FFD700</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="bronze">#CD7F32</color>
+
+    <!-- Misc -->
+    <color name="white">#FFFFFF</color>
+    <color name="ripple_purple">#4DA78BFA</color>
+
+</resources>
