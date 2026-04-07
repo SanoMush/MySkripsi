@@ -6,21 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-// Import class binding untuk fragment profil
+import androidx.fragment.app.viewModels // Tambahan untuk memanggil ViewModel
 import com.example.myskripsi.databinding.FragmentProfilBinding
+import com.example.myskripsi.viewmodel.ProfilViewModel
 
 class ProfilFragment : Fragment() {
 
-    // Deklarasi binding khusus untuk Fragment
     private var _binding: FragmentProfilBinding? = null
-    // Properti ini hanya boleh dipanggil antara onCreateView dan onDestroyView
     private val binding get() = _binding!!
+
+    // Memanggil ViewModel
+    private val viewModel: ProfilViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inisialisasi binding
         _binding = FragmentProfilBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -28,21 +29,32 @@ class ProfilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // --- CONTOH PENGGUNAAN BINDING DI SINI --- //
-
-        // Mengubah teks (ID tv_username di XML otomatis menjadi tvUsername di Kotlin)
-        binding.tvUsername.text = "Siswa Teladan"
-
-        // Memberikan aksi klik pada card menu riwayat
-        binding.menuRiwayat.setOnClickListener {
-            // Toast ini akan memunculkan pesan kecil di bawah layar
-            Toast.makeText(requireContext(), "Membuka Riwayat Belajar...", Toast.LENGTH_SHORT).show()
+        // 1. Memantau Username
+        viewModel.username.observe(viewLifecycleOwner) { nama ->
+            binding.tvUsername.text = nama
         }
 
+        // 2. Memantau XP dan menghitung Progress Bar
+        viewModel.xpSekarang.observe(viewLifecycleOwner) { xpSaatIni ->
+            val targetXp = viewModel.xpTarget.value ?: 1000 // Ambil target, default 1000
+
+            // Set teks "650 / 1000 XP"
+            binding.tvXp.text = "$xpSaatIni / $targetXp XP"
+
+            // Set nilai batas maksimal progress bar
+            binding.progressXp.max = targetXp
+
+            // Animasi sederhana ngisi progress bar
+            binding.progressXp.setProgress(xpSaatIni, true)
+        }
+
+        // 3. Aksi klik pada menu (Tetap dipertahankan)
+        binding.menuRiwayat.setOnClickListener {
+            Toast.makeText(requireContext(), "Membuka Riwayat Belajar...", Toast.LENGTH_SHORT).show()
+        }
         binding.menuNotifikasi.setOnClickListener {
             Toast.makeText(requireContext(), "Membuka Notifikasi...", Toast.LENGTH_SHORT).show()
         }
-
         binding.menuSettings.setOnClickListener {
             Toast.makeText(requireContext(), "Membuka Pengaturan...", Toast.LENGTH_SHORT).show()
         }
@@ -50,7 +62,6 @@ class ProfilFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        // Wajib dikosongkan agar memori aplikasi tidak bocor (memory leak)
         _binding = null
     }
 }
